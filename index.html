@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CultureSpace Digital Signage</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #2b2b2b; width: 100vw; height: 100vh; overflow: hidden; }
+  .slideshow { position: relative; width: 100%; height: 100%; }
+  .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.8s ease-in-out; }
+  .slide.active { opacity: 1; z-index: 1; }
+  .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .progress-bar {
+    position: fixed; bottom: 0; left: 0; height: 3px;
+    background: rgba(210,100,60,0.9); z-index: 100; width: 0%; transition: none;
+  }
+  .progress-bar.running { transition: width 3s linear; width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="slideshow">
+  <div class="slide"><img src="CS-Core-Values-Graphic-26_0_2-1-Work-Ethic.jpg"  alt="Work Ethic"></div>
+  <div class="slide"><img src="CS-Core-Values-Graphic-26_0_2-2-Humility.jpg"    alt="Humility"></div>
+  <div class="slide"><img src="CS-Core-Values-Graphic-26_0_2-3-Attitude.jpg"    alt="Attitude"></div>
+  <div class="slide"><img src="CS-Core-Values-Graphic-26_0_2-4-Loyalty.jpg"     alt="Loyalty"></div>
+  <div class="slide"><img src="CS-Core-Values-Graphic-26_0_2-5-Team-Player.jpg" alt="Team Player"></div>
+  <div class="slide"><img src="CS-Core-Values-Graphic-26_0_2-6-All.jpg"         alt="All Values"></div>
+</div>
+
+<div class="progress-bar" id="progress"></div>
+
+<script>
+  const slides   = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+  const DURATION = 3000;
+  let   current  = 0;
+
+  function showSlide(index) {
+    slides.forEach((s, i) => s.classList.toggle('active', i === index));
+    progress.classList.remove('running');
+    progress.style.width = '0%';
+    void progress.offsetWidth;
+    progress.classList.add('running');
+  }
+
+  showSlide(0);
+  setInterval(() => { current = (current + 1) % slides.length; showSlide(current); }, DURATION);
+</script>
+</body>
+</html>
