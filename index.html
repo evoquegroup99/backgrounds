@@ -19,24 +19,20 @@
 </style>
 </head>
 <body>
-
 <div class="slideshow">
-  <div class="slide"><img src="CS-Core-Values-Graphic-26_0_2-1-Work-Ethic.jpg"  alt="Work Ethic"></div>
-  <div class="slide"><img src="CS-Core-Values-Graphic-26_0_2-2-Humility.jpg"    alt="Humility"></div>
-  <div class="slide"><img src="CS-Core-Values-Graphic-26_0_2-3-Attitude.jpg"    alt="Attitude"></div>
-  <div class="slide"><img src="CS-Core-Values-Graphic-26_0_2-4-Loyalty.jpg"     alt="Loyalty"></div>
-  <div class="slide"><img src="CS-Core-Values-Graphic-26_0_2-5-Team-Player.jpg" alt="Team Player"></div>
-  <div class="slide"><img src="CS-Core-Values-Graphic-26_0_2-6-All.jpg"         alt="All Values"></div>
+  <div class="slide"><img src="CS-Core-Values-Graphic-26.0.2-1-Work-Ethic.jpg"  alt="Work Ethic"></div>
+  <div class="slide"><img src="CS-Core-Values-Graphic-26.0.2-2-Humility.jpg"    alt="Humility"></div>
+  <div class="slide"><img src="CS-Core-Values-Graphic-26.0.2-3-Attitude.jpg"    alt="Attitude"></div>
+  <div class="slide"><img src="CS-Core-Values-Graphic-26.0.2-4-Loyalty.jpg"     alt="Loyalty"></div>
+  <div class="slide"><img src="CS-Core-Values-Graphic-26.0.2-5-Team-Player.jpg" alt="Team Player"></div>
+  <div class="slide"><img src="CS-Core-Values-Graphic-26.0.2-6-All.jpg"         alt="All Values"></div>
 </div>
-
 <div class="progress-bar" id="progress"></div>
-
 <script>
   const slides   = document.querySelectorAll('.slide');
   const progress = document.getElementById('progress');
   const DURATION = 3000;
   let   current  = 0;
-
   function showSlide(index) {
     slides.forEach((s, i) => s.classList.toggle('active', i === index));
     progress.classList.remove('running');
@@ -44,7 +40,6 @@
     void progress.offsetWidth;
     progress.classList.add('running');
   }
-
   showSlide(0);
   setInterval(() => { current = (current + 1) % slides.length; showSlide(current); }, DURATION);
 </script>
